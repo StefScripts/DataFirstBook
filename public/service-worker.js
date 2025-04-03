@@ -3,7 +3,7 @@ const CACHE_NAME = 'datafirst-cache-v1';
 const API_CACHE_TIME = 5 * 60 * 1000; // 5 minutes
 
 // API endpoints to cache
-const API_URLS_TO_CACHE = ['/api/availability/next', '/api/blog-posts'];
+const API_URLS_TO_CACHE = ['/api/availability/next'];
 
 // Install the service worker and cache initial resources
 self.addEventListener('install', (event) => {

@@ -24,8 +24,8 @@ function Router() {
       <Route path="/auth" component={AuthPage} />
       <Route path="/reset-password" component={ResetPasswordPage} />
       <ProtectedRoute path="/admin" component={Admin} />
-      <Route path="/booking/confirm/:token" component={ManageBooking} />
-      <Route path="/booking/manage/:token" component={ManageBooking} />
+      <Route path="/confirm/:token" component={ManageBooking} />
+      <Route path="/manage/:token" component={ManageBooking} />
       {/* <Route path="/contact" component={Contact} />
       <Route path="/404" component={NotFound} /> */}
     </Switch>

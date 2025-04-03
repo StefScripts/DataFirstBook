@@ -6,8 +6,8 @@ Allow: /
 Disallow: /admin/
 Disallow: /auth/
 Disallow: /reset-password/
-Disallow: /booking/confirm/
-Disallow: /booking/manage/
+Disallow: /confirm/
+Disallow: /manage/
 
 # Sitemap location
 Sitemap: https://datafirstseo.com/sitemap.xml

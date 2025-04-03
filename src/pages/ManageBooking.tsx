@@ -47,7 +47,7 @@ export default function ManageBooking() {
   // Handle automatic confirmation when accessed via confirmation link
   useEffect(() => {
     // Check if we're on the confirmation path
-    if (location.includes('/booking/confirm/')) {
+    if (location.includes('/confirm/')) {
       // Make the confirmation API call
       fetch(`/api/bookings/confirm/${token}`)
         .then((response) => {
@@ -60,7 +60,7 @@ export default function ManageBooking() {
             description: 'Your consultation has been successfully confirmed.'
           });
           // Redirect to the management page
-          setLocation(`/booking/manage/${token}`);
+          setLocation(`/manage/${token}`);
         })
         .catch((error) => {
           toast({
@@ -173,10 +173,10 @@ export default function ManageBooking() {
 
   if (loadingBooking) {
     return (
-      <div className='min-h-screen py-20'>
-        <div className='container mx-auto px-4'>
-          <div className='flex items-center justify-center'>
-            <Loader2 className='h-8 w-8 animate-spin' />
+      <div className="min-h-screen py-20">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center">
+            <Loader2 className="h-8 w-8 animate-spin" />
           </div>
         </div>
       </div>
@@ -185,8 +185,8 @@ export default function ManageBooking() {
 
   if (!booking) {
     return (
-      <div className='min-h-screen py-20'>
-        <div className='container mx-auto px-4'>
+      <div className="min-h-screen py-20">
+        <div className="container mx-auto px-4">
           <Card>
             <CardHeader>
               <CardTitle>Booking Not Found</CardTitle>
@@ -201,9 +201,9 @@ export default function ManageBooking() {
   // Show cancelled status if the booking has been cancelled
   if (booking.cancelled) {
     return (
-      <div className='min-h-screen py-20'>
-        <div className='container mx-auto px-4'>
-          <div className='max-w-4xl mx-auto'>
+      <div className="min-h-screen py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
             <Card>
               <CardHeader>
                 <CardTitle>Booking Cancelled</CardTitle>
@@ -213,8 +213,8 @@ export default function ManageBooking() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Link href='/book'>
-                  <Button className='w-full'>Schedule New Consultation</Button>
+                <Link href="/">
+                  <Button className="w-full">Schedule New Consultation</Button>
                 </Link>
               </CardContent>
             </Card>
@@ -228,15 +228,15 @@ export default function ManageBooking() {
   const formattedTime = formatTime(booking.time);
 
   return (
-    <main className='min-h-screen py-20'>
-      <div className='container mx-auto px-4'>
-        <div className='max-w-4xl mx-auto'>
-          <div className='text-center mb-12'>
-            <h1 className='text-4xl font-bold mb-4'>Manage Your Booking</h1>
-            <p className='text-xl text-muted-foreground'>Reschedule or cancel your consultation</p>
+    <main className="min-h-screen py-20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold mb-4">Manage Your Booking</h1>
+            <p className="text-xl text-muted-foreground">Reschedule or cancel your consultation</p>
           </div>
 
-          <Card className='mb-8'>
+          <Card className="mb-8">
             <CardHeader>
               <CardTitle>Current Booking</CardTitle>
               <CardDescription>
@@ -252,15 +252,15 @@ export default function ManageBooking() {
             </CardHeader>
             <CardContent>
               <Form {...form}>
-                <form onSubmit={onSubmit} className='space-y-8'>
+                <form onSubmit={onSubmit} className="space-y-8">
                   <FormField
                     control={form.control}
-                    name='date'
+                    name="date"
                     render={({ field }) => (
-                      <FormItem className='flex flex-col'>
+                      <FormItem className="flex flex-col">
                         <FormLabel>New Date</FormLabel>
                         <Calendar
-                          mode='single'
+                          mode="single"
                           selected={field.value}
                           modifiers={{
                             weekend: (date) => date.getDay() === 0 || date.getDay() === 6
@@ -275,9 +275,8 @@ export default function ManageBooking() {
                             }
                           }}
                           disabled={(date) => date < new Date() || date > addDays(new Date(), 30) || date.getDay() === 0 || date.getDay() === 6}
-                          className='rounded-md border'
+                          className="rounded-md border"
                         />
-
                         <FormMessage />
                       </FormItem>
                     )}
@@ -285,22 +284,22 @@ export default function ManageBooking() {
 
                   <FormField
                     control={form.control}
-                    name='time'
+                    name="time"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>New Time (PST)</FormLabel>
-                        <div className='grid grid-cols-2 gap-2'>
+                        <div className="grid grid-cols-2 gap-2">
                           {checkingAvailability ? (
-                            <div className='col-span-2 flex items-center justify-center py-4'>
-                              <Loader2 className='h-6 w-6 animate-spin' />
+                            <div className="col-span-2 flex items-center justify-center py-4">
+                              <Loader2 className="h-6 w-6 animate-spin" />
                             </div>
                           ) : (
                             TIME_SLOTS.filter((slot) => !availability?.unavailableTimes?.includes(slot.value)).map(({ value, label }) => (
                               <Button
                                 key={value}
-                                type='button'
+                                type="button"
                                 variant={field.value === value ? 'default' : 'outline'}
-                                className='w-full'
+                                className="w-full"
                                 onClick={() => field.onChange(value)}
                                 disabled={!selectedDate}
                               >
@@ -314,14 +313,14 @@ export default function ManageBooking() {
                     )}
                   />
 
-                  <div className='flex gap-4'>
-                    <Button type='submit' className='flex-1' disabled={updateMutation.isPending}>
+                  <div className="flex gap-4">
+                    <Button type="submit" className="flex-1" disabled={updateMutation.isPending}>
                       {updateMutation.isPending ? 'Updating...' : 'Reschedule Booking'}
                     </Button>
 
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <Button variant='destructive' className='flex-1'>
+                        <Button variant="destructive" className="flex-1">
                           Cancel Booking
                         </Button>
                       </AlertDialogTrigger>
@@ -334,7 +333,7 @@ export default function ManageBooking() {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                           <AlertDialogCancel>Keep Booking</AlertDialogCancel>
-                          <AlertDialogAction onClick={() => cancelMutation.mutate()} className='bg-destructive text-destructive-foreground'>
+                          <AlertDialogAction onClick={() => cancelMutation.mutate()} className="bg-destructive text-destructive-foreground">
                             {cancelMutation.isPending ? 'Cancelling...' : 'Yes, Cancel Booking'}
                           </AlertDialogAction>
                         </AlertDialogFooter>
