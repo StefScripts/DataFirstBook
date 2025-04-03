@@ -7,22 +7,13 @@ import { AuthProvider } from '@/hooks/use-auth';
 import { ProtectedRoute } from '@/lib/protected-route';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-// import Navigation from '@/components/php-components/Navigation';
-// import Footer from '@/components/php-components/Footer';
-// import Home from '@/pages/Home';
-// import Process from '@/pages/Process';
 import Book from '@/pages/Book';
-// import Blog from '@/pages/Blog';
-// import BlogPost from '@/pages/BlogPost';
-// import Contact from '@/pages/Contact';
 import Admin from '@/pages/Admin';
 import AuthPage from '@/pages/auth';
 import ResetPasswordPage from '@/pages/reset-password';
 import ManageBooking from '@/pages/ManageBooking';
-// import TermsOfUse from './pages/terms';
-// import PrivacyPolicy from './pages/privacy';
+
 // import NotFound from './pages/not-found';
-// import { initializePhpScripts } from '@/phpScripts';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -30,18 +21,12 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Book} />
-      {/* <Route path="/process" component={Process} />
-      <Route path="/book" component={Book} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/blog/:slug" component={BlogPost} />
-      <Route path="/contact" component={Contact} /> */}
       <Route path="/auth" component={AuthPage} />
       <Route path="/reset-password" component={ResetPasswordPage} />
       <ProtectedRoute path="/admin" component={Admin} />
       <Route path="/booking/confirm/:token" component={ManageBooking} />
       <Route path="/booking/manage/:token" component={ManageBooking} />
-      {/* <Route path="/terms" component={TermsOfUse} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      {/* <Route path="/contact" component={Contact} />
       <Route path="/404" component={NotFound} /> */}
     </Switch>
   );
@@ -49,9 +34,6 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    // Initialize PHP scripts
-    // initializePhpScripts();
-
     // Register the service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
