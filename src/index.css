@@ -1,0 +1,41 @@
+@import './styles/php-styles/phpStyles.css';
+@import './styles/globals.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+.php-btn {
+  @apply px-4 py-2 font-medium transition-colors rounded-full;
+}
+
+.php-btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+/* Link compatibility */
+a.php-link {
+  @apply text-gray-800 hover:text-blue-600 font-medium transition-colors;
+}
+
+/* Footer link compatibility */
+a.php-footer-link {
+  @apply text-gray-400 hover:text-white transition-colors footer-link block;
+}
+
+/* Ensure Font Awesome icons work */
+.fa,
+.fab,
+.fas {
+  font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands';
+}

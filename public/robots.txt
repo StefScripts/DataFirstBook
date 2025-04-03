@@ -1,0 +1,13 @@
+# robots.txt for datafirstseo.com
+User-agent: *
+Allow: /
+
+# Disallow admin and authentication areas
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /reset-password/
+Disallow: /booking/confirm/
+Disallow: /booking/manage/
+
+# Sitemap location
+Sitemap: https://datafirstseo.com/sitemap.xml
