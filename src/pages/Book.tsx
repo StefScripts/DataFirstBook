@@ -238,15 +238,8 @@ export default function Book() {
         bodyClass="bg-gray-50"
       />
       <main className="relative bg-white py-24">
-        {/* <Metadata
-        title="Book a Free SEO Consultation with DataFirst SEO"
-        description="Schedule a free 30-minute SEO consultation with our experts to discuss how strategic SEO can help your B2B business attract and convert more high-value clients."
-        keywords="DataFirst SEO consultation, SEO consultation, free SEO consultation, B2B SEO consultation, book SEO call"
-        canonicalUrl="https://datafirstseo.com/book"
-      /> */}
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            {/* <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Schedule Your Free SEO Consultation</h1> */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-6 leading-tight">Schedule Your Free SEO Consultation</h1>
             <p className="text-xl text-gray-600 mb-8">
               Book a 30-minute strategy session to discuss how strategic SEO can help your business attract and convert more high-value B2B clients.

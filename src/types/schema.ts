@@ -11,25 +11,6 @@ export interface SelectUser {
 }
 
 /**
- * Blog post data structure
- */
-export interface BlogPost {
-  id: number;
-  title: string;
-  slug: string;
-  content: string;
-  excerpt: string;
-  metaDescription: string;
-  authorId?: number;
-  published: boolean;
-  publishedAt?: string;
-  createdAt: string;
-  updatedAt: string;
-  tags: string[];
-  featuredImage?: string;
-}
-
-/**
  * Booking data structure
  */
 export interface Booking {

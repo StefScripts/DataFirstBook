@@ -14,7 +14,6 @@ import { Loader2, Calendar as CalendarIcon, Clock, Users, X, Trash2 } from 'luci
 import { Badge } from '@/components/ui/badge';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { cn } from '@/lib/utils';
-import BlogEditor from '@/components/BlogEditor';
 import { Link } from 'wouter';
 import { DataTable } from '@/components/ui/data-table';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -30,7 +29,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog';
-import { addDays, formatDate, formatTime, formatCompactDate, formatDateAndTime, safeParseDate, startOfDay, TIME_SLOTS } from '@/lib/dateUtils';
+// import { addDays, formatDate, formatTime, formatCompactDate, formatDateAndTime, safeParseDate, startOfDay, TIME_SLOTS } from '@/lib/dateUtils';
+import { addDays, formatDate, formatTime, formatCompactDate, TIME_SLOTS } from '@/lib/dateUtils';
 
 // Define types for API response
 interface SlotData {
@@ -68,75 +68,6 @@ const recurringBlockSchema = z.object({
 });
 
 type RecurringBlockForm = z.infer<typeof recurringBlockSchema>;
-
-const BlogPostsSection = () => {
-  const { data: posts, isLoading } = useQuery({
-    queryKey: ['/api/admin/blog-posts'],
-    queryFn: async () => {
-      const response = await fetch('/api/admin/blog-posts');
-      if (!response.ok) throw new Error('Failed to fetch blog posts');
-      return response.json();
-    }
-  });
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center py-8">
-        <Loader2 className="h-8 w-8 animate-spin" />
-      </div>
-    );
-  }
-
-  if (!posts?.length) {
-    return <div className="text-center py-8 text-muted-foreground">No blog posts found</div>;
-  }
-
-  return (
-    <div className="space-y-4">
-      {posts.map((post: any) => (
-        <Card key={post.id}>
-          <CardContent className="pt-6">
-            <div className="flex items-start justify-between">
-              <div className="space-y-1">
-                <h3 className="font-semibold">{post.title}</h3>
-                <p className="text-sm text-muted-foreground">{formatDate(new Date(post.createdAt))}</p>
-                <div className="flex gap-2">
-                  <Badge variant={post.published ? 'default' : 'secondary'}>{post.published ? 'Published' : 'Draft'}</Badge>
-                  {post.published && (
-                    <Link href={`/blog/${post.slug}`} target="_blank">
-                      <Badge variant="outline">Preview</Badge>
-                    </Link>
-                  )}
-                </div>
-              </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button variant="outline">Edit</Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl">
-                  <ScrollArea className="max-h-[80vh]">
-                    <div className="p-6">
-                      <BlogEditor
-                        postId={post.id}
-                        onSuccess={() => {
-                          // Close dialog after successful edit
-                          const closeButton = document.querySelector('[aria-label="Close"]');
-                          if (closeButton instanceof HTMLButtonElement) {
-                            closeButton.click();
-                          }
-                        }}
-                      />
-                    </div>
-                  </ScrollArea>
-                </DialogContent>
-              </Dialog>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-};
 
 export default function Admin() {
   const { toast } = useToast();
@@ -399,15 +330,14 @@ export default function Admin() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Admin Dashboard</h1>
-            <p className="text-xl text-muted-foreground">Manage your consultations, time slots, and blog posts</p>
+            <p className="text-xl text-muted-foreground">Manage your consultations and time slots</p>
           </div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="consultations">Upcoming Consultations</TabsTrigger>
               <TabsTrigger value="calendar">Calendar & Time Slots</TabsTrigger>
               <TabsTrigger value="recurring">Recurring Blocks</TabsTrigger>
-              <TabsTrigger value="blog">Blog Posts</TabsTrigger>
             </TabsList>
 
             <TabsContent value="consultations">
@@ -694,23 +624,6 @@ export default function Admin() {
                   </Form>
                 </CardContent>
               </Card>
-            </TabsContent>
-
-            <TabsContent value="blog">
-              <div className="space-y-6">
-                <BlogEditor />
-
-                {/* Blog Posts Management */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Manage Blog Posts</CardTitle>
-                    <CardDescription>View, edit, and manage your blog posts</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <BlogPostsSection />
-                  </CardContent>
-                </Card>
-              </div>
             </TabsContent>
           </Tabs>
         </div>
