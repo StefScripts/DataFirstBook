@@ -10,11 +10,12 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { addDays, startOfDay, formatTime, formatDate, formatCompactDate, formatWeekday, TIME_SLOTS } from '@/lib/dateUtils';
+// import { addDays, startOfDay, formatTime, formatDate, formatCompactDate, formatWeekday, TIME_SLOTS } from '@/lib/dateUtils';
+// import { Loader2, Calendar as CalendarIcon } from 'lucide-react';
+import { addDays, startOfDay, formatWeekday, TIME_SLOTS } from '@/lib/dateUtils';
 import { Loader2, Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Metadata from '@/components/Metadata';
-import Head from '@/components/php-components/Head';
+import Head from '@/components/HeadPhp';
 
 // Type definitions for API responses
 interface NextAvailableDateResponse {

@@ -9,7 +9,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useMutation } from '@tanstack/react-query';
 import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
-import Metadata from '@/components/Metadata';
 
 // Validation schema for the contact form
 const contactFormSchema = z.object({
@@ -71,12 +70,12 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen py-20">
-      <Metadata
+      {/* <Metadata
         title="Contact Us | DataFirst SEO"
         description="Contact DataFirst SEO or visiting our booking page to schedule your free SEO consultation."
         keywords=""
         canonicalUrl="https://datafirstseo.com/contact"
-      />
+      /> */}
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
