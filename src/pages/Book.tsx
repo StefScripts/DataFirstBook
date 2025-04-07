@@ -240,7 +240,7 @@ export default function Book() {
       <main className="relative bg-white py-24">
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-6 leading-tight">Schedule Your Free SEO Consultation</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">Schedule Your Free SEO Consultation</h1>
             <p className="text-xl text-gray-600 mb-8">
               Book a 30-minute strategy session to discuss how strategic SEO can help your business attract and convert more high-value B2B clients.
             </p>

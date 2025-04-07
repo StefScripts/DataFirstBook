@@ -124,7 +124,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-12">
           <div className="col-span-1 lg:col-span-1">
             <div className="mb-6">

@@ -18,10 +18,11 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav id="navbar" className={cn('sticky top-0 z-50 w-full px-6 py-4', scrolled ? 'bg-white shadow-lg' : 'bg-transparent')}>
-      <div className="container mx-auto flex justify-between items-center">
+    // <nav id="navbar" className={cn('sticky top-0 z-50 w-full px-6 py-5', scrolled ? 'bg-white shadow-lg' : 'bg-transparent')}>
+    <nav id="navbar" className={cn('sticky top-0 z-50 w-full px-6 py-5', scrolled ? 'bg-white shadow-lg' : 'bg-white')}>
+      <div className="container max-w-6xl">
         {/* Logo as an external link */}
-        <a href={WEBSITE_URL} className="flex items-center">
+        <a href={WEBSITE_URL}>
           <div>
             <span className="text-gray-800 text-3xl font-bold">DataFirst</span>
             <span className="text-sm"> </span>
