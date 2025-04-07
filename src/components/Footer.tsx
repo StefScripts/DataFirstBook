@@ -144,27 +144,27 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://datafirstseo.com/index.php#services" className="text-gray-400 hover:text-white footer-link block">
+                <a href="https://datafirstseo.com/#services" className="text-gray-400 hover:text-white footer-link block">
                   SEO Services
                 </a>
               </li>
               <li>
-                <a href="https://datafirstseo.com/index.php#process" className="text-gray-400 hover:text-white footer-link block">
+                <a href="https://datafirstseo.com/#process" className="text-gray-400 hover:text-white footer-link block">
                   Our Process
                 </a>
               </li>
               <li>
-                <a href="https://datafirstseo.com/index.php#about" className="text-gray-400 hover:text-white footer-link block">
+                <a href="https://datafirstseo.com/#about" className="text-gray-400 hover:text-white footer-link block">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="https://datafirstseo.com/index.php#faq" className="text-gray-400 hover:text-white footer-link block">
+                <a href="https://datafirstseo.com/#faq" className="text-gray-400 hover:text-white footer-link block">
                   FAQ's
                 </a>
               </li>
               <li>
-                <a href="https://datafirstseo.com/contact.php" className="text-gray-400 hover:text-white footer-link block">
+                <a href="https://datafirstseo.com/contact" className="text-gray-400 hover:text-white footer-link block">
                   Contact
                 </a>
               </li>
