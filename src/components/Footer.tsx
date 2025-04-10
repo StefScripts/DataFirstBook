@@ -128,9 +128,9 @@ export default function Footer() {
         <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-12">
           <div className="col-span-1 lg:col-span-1">
             <div className="mb-6">
-              <span className="text-blue-400 text-3xl font-bold">DataFirst</span>
-              <span className="text-sm"> </span>
-              <span className="text-3xl">SEO</span>
+            <a href="https://datafirstseo.com" className="flex items-center">
+            <img src="/logo-white.png" alt="DataFirst SEO logo white" className="h-12 w-auto" />
+            </a>
             </div>
             <p className="text-gray-400 mb-6">Helping B2B companies transform their digital presence into a predictable source of revenue.</p>
           </div>
@@ -227,15 +227,15 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-400">&copy; {currentYear} DataFirst SEO. All rights reserved.</p>
           <div className="mt-4 flex justify-center space-x-6">
-            <a href="https://datafirstseo.com/terms-of-service.php" className="text-gray-400 hover:text-white footer-link block">
+            <a href="https://datafirstseo.com/terms-of-service" className="text-gray-400 hover:text-white footer-link block">
               Terms of Service
             </a>
-            <a href="https://datafirstseo.com/privacy-policy.php" className="text-gray-400 hover:text-white footer-link block">
+            <a href="https://datafirstseo.com/privacy-policy" className="text-gray-400 hover:text-white footer-link block">
               Privacy Policy
             </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-white">
+            {/* <a href="#" className="text-sm text-gray-400 hover:text-white">
               Sitemap
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

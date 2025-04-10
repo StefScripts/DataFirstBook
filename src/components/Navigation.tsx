@@ -24,9 +24,10 @@ export default function Navigation() {
         {/* Logo as an external link */}
         <a href={WEBSITE_URL}>
           <div>
-            <span className="text-gray-800 text-3xl font-bold">DataFirst</span>
+            {/* <span className="text-gray-800 text-3xl font-bold">DataFirst</span>
             <span className="text-sm"> </span>
-            <span className="text-blue-600 text-3xl">SEO</span>
+            <span className="text-blue-600 text-3xl">SEO</span> */}
+            <img src="/nav-logo-icon.png" alt="DataFirst SEO logo" className="h-12 w-auto" />
           </div>
         </a>
       </div>
